@@ -30,12 +30,18 @@ jobs:
           - os: windows-latest
             c_compiler: cl
             cpp_compiler: cl
+            output_file: ${{ github.workspace }}/build/bin/${{ matrix.build_type }}/wsl_localhost_addr_server.exe
+
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
+            output_file: ${{ github.workspace }}/build/bin/wsl_localhost_addr_server
+
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
+            output_file: ${{ github.workspace }}/build/bin/wsl_localhost_addr_server
+
         exclude:
           - os: windows-latest
             c_compiler: gcc
@@ -78,8 +84,8 @@ jobs:
       # Archive the build output directory so that it can be downloaded as an artifact.
       uses: actions/upload-artifact@v2
       with:
-        name: build-output
-        path: ${{ steps.strings.outputs.build-output-dir }}
+        name: ${{ matrix.os }}-build-output
+        path: ${{ matrix.output_file }}
 
 
 
