@@ -30,7 +30,7 @@ jobs:
           - os: windows-latest
             c_compiler: cl
             cpp_compiler: cl
-            output_file: ${{ github.workspace }}/build/bin/${{ matrix.build_type }}/wsl_localhost_addr_server.exe
+            output_file: ${{ github.workspace }}/build/bin/Release/wsl_localhost_addr_server.exe
 
           - os: ubuntu-latest
             c_compiler: gcc
