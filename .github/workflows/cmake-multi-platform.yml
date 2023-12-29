@@ -84,7 +84,7 @@ jobs:
       # Archive the build output directory so that it can be downloaded as an artifact.
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ matrix.os }}-build-output
+        name: ${{ matrix.os }}-${{ matrix.c_compiler }}-output
         path: ${{ github.workspace }}/${{ matrix.output_file }}
 
 
