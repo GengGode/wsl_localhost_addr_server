@@ -30,17 +30,17 @@ jobs:
           - os: windows-latest
             c_compiler: cl
             cpp_compiler: cl
-            output_file: ${{ github.workspace }}/build/bin/Release/wsl_localhost_addr_server.exe
+            output_file: build/bin/Release/wsl_localhost_addr_server.exe
 
           - os: ubuntu-latest
             c_compiler: gcc
             cpp_compiler: g++
-            output_file: ${{ github.workspace }}/build/bin/wsl_localhost_addr_server
+            output_file: build/bin/wsl_localhost_addr_server
 
           - os: ubuntu-latest
             c_compiler: clang
             cpp_compiler: clang++
-            output_file: ${{ github.workspace }}/build/bin/wsl_localhost_addr_server
+            output_file: build/bin/wsl_localhost_addr_server
 
         exclude:
           - os: windows-latest
@@ -85,7 +85,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: ${{ matrix.os }}-build-output
-        path: ${{ matrix.output_file }}
+        path: ${{ github.workspace }}/${{ matrix.output_file }}
 
 
 
