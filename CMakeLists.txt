@@ -13,10 +13,6 @@ FetchContent_MakeAvailable(httplib)
 set(OPENSSL_USE_STATIC_LIBS TRUE)
 set(OPENSSL_MSVC_STATIC_RT TRUE)
 find_package(OpenSSL REQUIRED)
-#FetchContent_Declare(openssl GIT_REPOSITORY https://github.com/openssl/openssl.git GIT_TAG openssl-3.2.0)
-#FetchContent_MakeAvailable(openssl)
 
 add_executable(wsl_localhost_addr_server main.cpp)
 target_link_libraries(wsl_localhost_addr_server PRIVATE httplib::httplib OpenSSL::SSL OpenSSL::Crypto)
-
-# install(TARGETS wsl_localhost_addr_server DESTINATION ${CMAKE_INSTALL_PREFIX})
